@@ -1,0 +1,4 @@
+harry-laptop form-factor=laptop,has-wifi,os=linux,priority=1
+harry-desktop form-factor=desktop,os=windows,priority=2
+work-laptop form-factor=laptop,os=macos,priority=3
+harry-server form-factor=desktop,os=linux,priority=1

@@ -1,0 +1,11 @@
+[package]
+name = "nodeattr-ng"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.97"
+from-pest = "0.3.3"
+pest = "2.8"
+pest-ast = "0.3.5"
+pest_derive = "2.8"

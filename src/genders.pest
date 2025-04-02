@@ -1,0 +1,20 @@
+// Newlines are not whitespace as they have delimiting meaning
+WHITESPACE = _{ " " | "\t" }
+// An identifier: a-zA-Z0-9_\-
+ident = @{ ASCII_ALPHA ~ (ASCII_ALPHANUMERIC | "-" | "_")+ }
+// True or false boolean
+attribute_value_bool = { "true" | "false" }
+// A multi-digit number
+attribute_value_numeric = { ASCII_DIGIT+ }
+// Any string of characters except for a comma or newline
+attribute_value_string = { (!("," | NEWLINE) ~ ANY)+ }
+// A combination of the attribute value types
+attribute_value = { attribute_value_bool | attribute_value_numeric | attribute_value_string }
+// An attribute: Either a key=value pair or just a key
+attribute = { ident ~ "=" ~ attribute_value | ident }
+// A comma-separated list of attributes
+attribute_list = { attribute ~ ("," ~ attribute)* ~ (",")? }
+// A host and its attribute list
+host_entry = { ident ~ attribute_list }
+// A complete genders file, with newline-delimited host entries, potentially empty
+genders_file = { SOI ~ (((host_entry ~ NEWLINE) | NEWLINE)* ~ EOI | (host_entry ~ EOI)) }
