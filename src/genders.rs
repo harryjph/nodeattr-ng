@@ -92,7 +92,7 @@ mod ast {
     #[pest_ast(rule(Rule::genders_file))]
     pub(super) struct GendersFile<'src> {
         hosts: Vec<HostEntry<'src>>,
-        _eoi: EOI,
+        _eoi: Vec<EOI>,
     }
 
     #[derive(Debug, FromPest)]

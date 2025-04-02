@@ -17,4 +17,4 @@ attribute_list = { attribute ~ ("," ~ attribute)* ~ (",")? }
 // A host and its attribute list
 host_entry = { ident ~ attribute_list }
 // A complete genders file, with newline-delimited host entries, potentially empty
-genders_file = { SOI ~ (((host_entry ~ NEWLINE) | NEWLINE)* ~ EOI | (host_entry ~ EOI)) }
+genders_file = { SOI ~ ((host_entry ~ (NEWLINE | EOI)) | NEWLINE)* ~ EOI }
